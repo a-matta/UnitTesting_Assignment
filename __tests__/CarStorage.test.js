@@ -14,7 +14,7 @@ describe("Testing constructor", () => {
   });
 });
 
-describe("testing method getById", () => {
+describe("Testing method getById", () => {
   test("Test 1 : if parameter missing throws an exception", () => {
     const storage = new CarStorage(carsdata);
     expect(() => storage.getById()).toThrow("parameter missing");
@@ -36,5 +36,17 @@ describe("testing method getById", () => {
   test("Test 3 : returns the car object null if there is no match", () => {
     const storage = new CarStorage(carsdata);
     expect(storage.getById(-1)).toBeNull();
+  });
+});
+
+describe("Testing method getAllIdsByManufacturer ", () => {
+  test("Test 1: returns the car object null if there is no match", () => {
+    const storage = new CarStorage(carsdata);
+    expect(storage.getAllIdsByManufacturer()).toEqual([]);
+  });
+
+  test("Test 2: Returns an array of car id where the cars manufacturer matches the given value.", () => {
+    const storage = new CarStorage(carsdata);
+    expect(storage.getAllIdsByManufacturer("WBM")).toStrictEqual([1]);
   });
 });

@@ -15,4 +15,15 @@ module.exports = class CarStorage {
     }
     return null;
   }
+
+  getAllIdsByManufacturer(manufacturer) {
+    if (!manufacturer) return [];
+    const carIds = [];
+    for (const car of this.carStorage) {
+      if (car.manufacturer === manufacturer) {
+        carIds.push(car.id);
+      }
+    }
+    return carIds;
+  }
 };
