@@ -112,8 +112,19 @@ describe("Testing method getPriceWithoutExtras ", () => {
   });
 });
 
-describe("Testing method getPriceWithoutExtras ", () => {
+describe("Testing method getTotalPrice ", () => {
   test("Test 1:  if parameter missing throws an exception", () => {
     const storage = new CarStorage(carsdata);
+    expect(() => storage.getTotalPrice()).toThrow("missing parameter");
+  });
+  test("Test 2:  return the price of the car", () => {
+    const storage = new CarStorage(carsdata);
+    expect(storage.getTotalPrice(2)).toStrictEqual(35_210);
+  });
+  test("Test 3:  if no car with the given number is found throws an exception", () => {
+    const storage = new CarStorage(carsdata);
+    expect(() => storage.getTotalPrice(33)).toThrow(
+      "nothing found with given id"
+    );
   });
 });
