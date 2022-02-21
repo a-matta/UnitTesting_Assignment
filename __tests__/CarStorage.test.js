@@ -106,4 +106,14 @@ describe("Testing method getPriceWithoutExtras ", () => {
     const storage = new CarStorage(carsdata);
     expect(storage.getPriceWithoutExtras(3)).toStrictEqual(15_000);
   });
+  test("Test 3:  if no car with the given number is found throws an exeption `nothing found with given id`", () => {
+    const storage = new CarStorage(carsdata);
+    expect(() => storage.getPriceWithoutExtras()).toThrow("missing parameter");
+  });
+});
+
+describe("Testing method getPriceWithoutExtras ", () => {
+  test("Test 1:  if parameter missing throws an exception", () => {
+    const storage = new CarStorage(carsdata);
+  });
 });
