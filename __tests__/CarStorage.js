@@ -94,4 +94,16 @@ module.exports = class CarStorage {
     }
     throw new Error("nothing found with given id");
   }
+
+  hasAccessories(id) {
+    if (!id) return false;
+    for (const car of this.carStorage) {
+      if (car.id === id) {
+        if (!car.accessories) {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
 };

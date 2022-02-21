@@ -144,3 +144,14 @@ describe("Testing method getPriceOfTheExtras ", () => {
     expect(storage.getTotalPrice(2)).toStrictEqual(35210);
   });
 });
+
+describe("Testing method hasAccessories ", () => {
+  test("Test 1:  returns true if the car has accessories ", () => {
+    const storage = new CarStorage(carsdata);
+    expect(storage.getTotalPrice(2)).toBeTruthy();
+  });
+  test("Test 2:  If parameter id is missing false is returned", () => {
+    const storage = new CarStorage(carsdata);
+    expect(storage.getTotalPrice(22)).toBeFalsy();
+  });
+});
