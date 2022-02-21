@@ -50,3 +50,36 @@ describe("Testing method getAllIdsByManufacturer ", () => {
     expect(storage.getAllIdsByManufacturer("WBM")).toStrictEqual([1]);
   });
 });
+describe("Testing method getAllCarTypes ", () => {
+  test("Test 1: Returns an array of different car types. ", () => {
+    const testData = ["XGT", "Coupe", "solo"];
+    const storage = new CarStorage(carsdata);
+    expect(storage.getAllCarTypes()).toStrictEqual(testData);
+  });
+
+  test("Test 2: If no cars are found, returns an empty array. ", () => {
+    const storage = new CarStorage([]);
+    expect(storage.getAllCarTypes()).toStrictEqual([]);
+  });
+});
+
+describe("Testing method getAllCarsByType ", () => {
+  test("Test 1:  if parameter missing throws an exception", () => {
+    const storage = new CarStorage(carsdata);
+    expect(() => storage.getAllCarsByType()).toThrow("missing parameter");
+  });
+  test("Test 2:Returns an array of car objects of given type ", () => {
+    const testValues = [
+      {
+        id: 3,
+        manufacturer: "FauV",
+        type: "solo",
+        accessories: [],
+        price: 15_000,
+        extras: [],
+      },
+    ];
+    const storage = new CarStorage(carsdata);
+    expect(storage.getAllCarsByType("solo")).toStrictEqual(testValues);
+  });
+});

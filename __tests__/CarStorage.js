@@ -21,9 +21,44 @@ module.exports = class CarStorage {
     const carIds = [];
     for (const car of this.carStorage) {
       if (car.manufacturer === manufacturer) {
-        carIds.push(car.id);
+        carIds.push(manufacturer);
       }
     }
     return carIds;
+  }
+
+  getAllCarTypes() {
+    const types = [];
+    for (const car of this.carStorage) {
+      if (!types.includes(car.type)) {
+        types.push(car.type);
+      }
+    }
+    return types;
+  }
+
+  getAllCarsByType(carType) {
+    if (!carType) throw new Error("missing parameter");
+    const found = [];
+    for (const car of this.carStorage) {
+      if (car.type === carType) {
+        found.push(car);
+      }
+    }
+    return found;
+  }
+
+  getCarAccessories(id) {
+    if (!id) return [];
+    for (const car of this.carStorage) {
+      if (car.id === id) {
+        return car.accessories;
+      }
+    }
+    return [];
+  }
+
+  getPriceWithoutExtras(id) {
+    if (!carAccessories) return [];
   }
 };
