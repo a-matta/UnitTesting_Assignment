@@ -128,3 +128,19 @@ describe("Testing method getTotalPrice ", () => {
     );
   });
 });
+describe("Testing method getPriceOfTheExtras ", () => {
+  test("Test 1: Return if no car with the given number is found throws an exeption `nothing found with given id`", () => {
+    const storage = new CarStorage(carsdata);
+    expect(() => storage.getTotalPrice(33)).toThrow(
+      "nothing found with given id"
+    );
+  });
+  test("Test 3:  If no extras is found returns 0 ", () => {
+    const storage = new CarStorage(carsdata);
+    expect(storage.getTotalPrice(3)).toStrictEqual(0);
+  });
+  test("Test 2: the total price of extras.", () => {
+    const storage = new CarStorage(carsdata);
+    expect(storage.getTotalPrice(2)).toStrictEqual(35210);
+  });
+});

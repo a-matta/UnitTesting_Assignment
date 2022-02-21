@@ -81,4 +81,17 @@ module.exports = class CarStorage {
     }
     throw new Error("nothing found with given id");
   }
+
+  getPriceOfTheExtras(id) {
+    for (const car of this.carStorage) {
+      if (car.id === id) {
+        let price = 0;
+        for (const extra of car.extras) {
+          price += extra.price;
+        }
+        return price;
+      }
+    }
+    throw new Error("nothing found with given id");
+  }
 };
