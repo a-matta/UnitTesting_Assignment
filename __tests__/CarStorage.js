@@ -59,6 +59,12 @@ module.exports = class CarStorage {
   }
 
   getPriceWithoutExtras(id) {
-    if (!carAccessories) return [];
+    if (!id) throw new Error("missing parameter");
+    for (const car of this.carStorage) {
+      if (car.id === id) {
+        return car.price;
+      }
+    }
+    throw new Error("nothing found with given id");
   }
 };

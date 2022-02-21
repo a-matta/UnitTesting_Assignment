@@ -83,3 +83,27 @@ describe("Testing method getAllCarsByType ", () => {
     expect(storage.getAllCarsByType("solo")).toStrictEqual(testValues);
   });
 });
+
+describe("Testing method getCarAccessories ", () => {
+  test("Test 1:  if parameter missing throws an exception", () => {
+    const storage = new CarStorage(carsdata);
+    expect(storage.getCarAccessories()).toStrictEqual([]);
+  });
+  test("Test 2:Returns an array of car accessories ", () => {
+    const expected = ["clock", "speedometer", "hook"];
+
+    const storage = new CarStorage(carsdata);
+    expect(storage.getCarAccessories(2)).toStrictEqual(expected);
+  });
+});
+
+describe("Testing method getPriceWithoutExtras ", () => {
+  test("Test 1:  if parameter missing throws an exception", () => {
+    const storage = new CarStorage(carsdata);
+    expect(storage.getPriceWithoutExtras()).toStrictEqual([]);
+  });
+  test("Test 2:  return the price of the car", () => {
+    const storage = new CarStorage(carsdata);
+    expect(storage.getPriceWithoutExtras(3)).toStrictEqual(15_000);
+  });
+});
