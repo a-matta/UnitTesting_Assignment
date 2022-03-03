@@ -17,7 +17,7 @@ describe("Testing constructor", () => {
 describe("Testing method getById", () => {
   test("Test 1 : if parameter missing throws an exception", () => {
     const storage = new CarStorage(carsdata);
-    expect(() => storage.getById()).toThrow("parameter missing");
+    expect(() => storage.getById()).toThrow("missing parameter");
   });
 
   test("Test 2 : returns the car object matching the id", () => {
