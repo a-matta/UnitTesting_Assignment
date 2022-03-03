@@ -90,7 +90,7 @@ describe("Testing method getCarAccessories ", () => {
     expect(storage.getCarAccessories()).toStrictEqual([]);
   });
   test("Test 2:Returns an array of car accessories ", () => {
-    const expected = ["clock", "speedometer", "hook"];
+    const expected = ["clock", "speedometer"];
 
     const storage = new CarStorage(carsdata);
     expect(storage.getCarAccessories(2)).toStrictEqual(expected);
@@ -100,7 +100,7 @@ describe("Testing method getCarAccessories ", () => {
 describe("Testing method getPriceWithoutExtras ", () => {
   test("Test 1:  if parameter missing throws an exception", () => {
     const storage = new CarStorage(carsdata);
-    expect(storage.getPriceWithoutExtras()).toStrictEqual([]);
+    expect(() => storage.getPriceWithoutExtras()).toThrow("missing parameter");
   });
   test("Test 2:  return the price of the car", () => {
     const storage = new CarStorage(carsdata);

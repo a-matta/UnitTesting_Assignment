@@ -21,7 +21,7 @@ module.exports = class CarStorage {
     const carIds = [];
     for (const car of this.carStorage) {
       if (car.manufacturer === manufacturer) {
-        carIds.push(manufacturer);
+        carIds.push(car.id);
       }
     }
     return carIds;
