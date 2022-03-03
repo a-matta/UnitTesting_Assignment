@@ -119,7 +119,7 @@ describe("Testing method getTotalPrice ", () => {
   });
   test("Test 2:  return the price of the car", () => {
     const storage = new CarStorage(carsdata);
-    expect(storage.getTotalPrice(2)).toStrictEqual(35_210);
+    expect(storage.getTotalPrice(2)).toStrictEqual(35210);
   });
   test("Test 3:  if no car with the given number is found throws an exception", () => {
     const storage = new CarStorage(carsdata);
@@ -136,22 +136,32 @@ describe("Testing method getPriceOfTheExtras ", () => {
     );
   });
   test("Test 3:  If no extras is found returns 0 ", () => {
-    const storage = new CarStorage(carsdata);
-    expect(storage.getTotalPrice(3)).toStrictEqual(0);
+    const testValues = [
+      {
+        id: 3,
+        manufacturer: "FauV",
+        type: "solo",
+        accessories: [],
+        price: 0,
+        extras: [],
+      },
+    ];
+    const storage = new CarStorage(testValues);
+    expect(storage.getTotalPrice(3)).toBe(0);
   });
   test("Test 2: the total price of extras.", () => {
     const storage = new CarStorage(carsdata);
-    expect(storage.getTotalPrice(2)).toStrictEqual(35210);
+    expect(storage.getTotalPrice(2)).toBe(35210);
   });
 });
 
 describe("Testing method hasAccessories ", () => {
   test("Test 1:  returns true if the car has accessories ", () => {
     const storage = new CarStorage(carsdata);
-    expect(storage.getTotalPrice(2)).toBeTruthy();
+    expect(storage.hasAccessories(2)).toBeTruthy();
   });
   test("Test 2:  If parameter id is missing false is returned", () => {
     const storage = new CarStorage(carsdata);
-    expect(storage.getTotalPrice(22)).toBeFalsy();
+    expect(storage.hasAccessories()).toBeFalsy();
   });
 });
