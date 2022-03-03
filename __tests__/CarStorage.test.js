@@ -1,7 +1,7 @@
 "use strict";
 
-const CarStorage = require("./CarStorage");
-const carsdata = require("./datastorage.json");
+const CarStorage = require("../CarStorage");
+const carsdata = require("../datastorage.json");
 
 describe("Testing constructor", () => {
   test("Test 1: object created with given data", () => {
