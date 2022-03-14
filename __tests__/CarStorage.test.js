@@ -155,13 +155,21 @@ describe("Testing method getPriceOfTheExtras ", () => {
   });
 });
 
-describe("Testing method hasAccessories ", () => {
-  test("Test 1:  returns true if the car has accessories ", () => {
+describe("Testing method hasAccessories", () => {
+  test("Test 1:  If parameter id is missing false is returned", () => {
+    const storage = new CarStorage(carsdata);
+    expect(storage.hasAccessories()).toBeFalsy();
+  });
+  test("Test 2:  returns true if the car has accessories", () => {
     const storage = new CarStorage(carsdata);
     expect(storage.hasAccessories(2)).toBeTruthy();
   });
-  test("Test 2:  If parameter id is missing false is returned", () => {
+  test("Test 3 : returns false if accessory array is empty", () => {
     const storage = new CarStorage(carsdata);
-    expect(storage.hasAccessories()).toBeFalsy();
+    expect(storage.hasAccessories(3)).toBeFalsy();
+  });
+  test("Test 4: returns false if accessory property does not exist", () => {
+    const storage = new CarStorage(carsdata);
+    expect(storage.hasAccessories(4)).toBeFalsy();
   });
 });

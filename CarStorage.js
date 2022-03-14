@@ -99,7 +99,7 @@ module.exports = class CarStorage {
     if (!id) return false;
     for (const car of this.carStorage) {
       if (car.id === id) {
-        if (!car.accessories) {
+        if (!car.accessories || car.accessories.length === 0) {
           return false;
         }
       }
