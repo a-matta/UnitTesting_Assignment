@@ -40,5 +40,12 @@
     "accessories": [],
     "price": 15000,
     "extras": []
+  },
+  {
+    "id": 4,
+    "manufacturer": "tesla",
+    "type": "molo",
+    "price": 15000,
+    "extras": []
   }
 ]

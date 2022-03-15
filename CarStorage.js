@@ -96,14 +96,13 @@ module.exports = class CarStorage {
   }
 
   hasAccessories(id) {
-    if (!id) return false;
     for (const car of this.carStorage) {
       if (car.id === id) {
-        if (!car.accessories || car.accessories.length === 0) {
-          return false;
+        if (car.accessories && car.accessories.length > 0) {
+          return true;
         }
       }
     }
-    return true;
+    return false;
   }
 };

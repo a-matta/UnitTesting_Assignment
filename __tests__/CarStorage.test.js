@@ -52,7 +52,7 @@ describe("Testing method getAllIdsByManufacturer ", () => {
 });
 describe("Testing method getAllCarTypes ", () => {
   test("Test 1: Returns an array of different car types. ", () => {
-    const testData = ["XGT", "Coupe", "solo"];
+    const testData = ["XGT", "Coupe", "solo", "molo"];
     const storage = new CarStorage(carsdata);
     expect(storage.getAllCarTypes()).toStrictEqual(testData);
   });
